@@ -1,0 +1,40 @@
+name: "Application Delivery Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-ship:
+    name: "Build & Ship Container"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clones your application source code onto the cloud runner machine
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      # 2. Securely logs into your AWS account using your encrypted keys
+      - name: Authenticate with AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 3. Authenticates Docker directly with your private Amazon ECR registry
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # 4. Compiles, tags, and pushes your container image capsule to AWS
+      - name: Build, Tag, and Push Image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: anubis-api
+          IMAGE_TAG: ${{ github.sha }} # Tags image with unique Git commit hash for tracking
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
