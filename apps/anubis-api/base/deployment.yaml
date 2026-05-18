@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anubis-api
+  namespace: default
+  labels:
+    app: anubis-api
+spec:
+  replicas: 2 # 🚀 Keeps exactly 2 copies of your app running for high-availability
+  selector:
+    matchLabels:
+      app: anubis-api
+  template:
+    metadata:
+      labels:
+        app: anubis-api
+    spec:
+      containers:
+        - name: anubis-api
+          # Note: Flux will automatically overwrite this placeholder tag with your real live AWS ECR image hash later! Total Bullshit!
+          image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:a9dc5ff39c7f66db9729869a365d76bc6bea6a8c
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+
