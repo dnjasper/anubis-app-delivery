@@ -9,5 +9,5 @@ patches:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/image
-        value: ://amazonaws.com
+        value: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:a9dc5ff39c7f66db9729869a365d76bc6bea6a8c
 
