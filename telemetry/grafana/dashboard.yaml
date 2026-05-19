@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: anubis-grafana-dashboard
+  namespace: default
+  labels:
+    grafana_dashboard: "1"
+data:
+  anubis-api-metrics.json: |-
+    {
+      "annotations": { "list": [] },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": null,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "title": "Anubis API - Live Request Count (HTTP 200)",
+          "type": "timeseries",
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+          "targets": [{ "expr": "sum(rate(http_requests_total{status='200'}[5m]))", "legendFormat": "Requests/sec" }]
+        },
+        {
+          "title": "Anubis API - Container Memory Utilization",
+          "type": "gauge",
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+          "targets": [{ "expr": "container_memory_working_set_bytes{container='anubis-api'}", "legendFormat": "Bytes" }]
+        }
+      ],
+      "refresh": "5s",
+      "schemaVersion": 36,
+      "style": "dark",
+      "tags": ["production", "anubis"],
+      "title": "Anubis API Production Telemetry Dashboard",
+      "version": 1
+    }
+
