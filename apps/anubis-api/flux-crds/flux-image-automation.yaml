@@ -2,7 +2,8 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 metadata:
   name: anubis-api
-  namespace: flux-system
+  namespace: default
+ # namespace: flux-system
 spec:
   interval: 1m
   image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api
@@ -14,7 +15,8 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: anubis-api-latest
-  namespace: flux-system
+  namespace: default
+ # namespace: flux-system
 spec:
   imageRepositoryRef:
     name: anubis-api
@@ -27,7 +29,8 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
   name: anubis-api-update
-  namespace: flux-system
+  namespace: default
+ # namespace: flux-system
 spec:
   interval: 1m
   sourceRef:
