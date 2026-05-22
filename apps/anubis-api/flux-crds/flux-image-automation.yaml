@@ -32,6 +32,6 @@ spec:
   interval: 1m
   sourceRef:
     kind: GitRepository
-    name: my-cluster
+    name: flux-system
   update:
     strategy: Setters
