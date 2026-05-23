@@ -4,11 +4,11 @@ metadata:
   name: anubis-api-ingress
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: alb
+ #  kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: alb
+  ingressClassName: anubis-external-lb
   rules:
     - http:
         paths:
