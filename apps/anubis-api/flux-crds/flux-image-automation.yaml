@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api
+  image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:9f4cd868278288b2eee92da517b3921ebc47ab43
   secretRef:
     name: ecr-credentials  # IAM or credentials to pull ECR
 
