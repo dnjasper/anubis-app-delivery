@@ -1,16 +1,16 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: anubis-api
   namespace: flux-system
 spec:
   interval: 1m
-  image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:9f4cd868278288b2eee92da517b3921ebc47ab43
+  image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api
   secretRef:
     name: ecr-credentials  # IAM or credentials to pull ECR
 
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: anubis-api-latest
@@ -23,7 +23,7 @@ spec:
       range: "*"  # Always pick the latest version
 
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
   name: anubis-api-update
