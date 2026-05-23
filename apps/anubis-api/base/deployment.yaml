@@ -6,7 +6,7 @@ metadata:
   labels:
     app: anubis-api
 spec:
-  replicas: 3 # Keeps exactly 2 copies of your app running for high-availability
+  replicas: 5 # Keeps exactly 2 copies of your app running for high-availability
   selector:
     matchLabels:
       app: anubis-api
@@ -18,9 +18,7 @@ spec:
       containers:
         - name: anubis-api
           # Note: Flux will automatically overwrite this placeholder tag with your real live AWS ECR image hash later! Total Bullshit!
-          images: 
-          - name: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api
-            newTag: 9f4cd868278288b2eee92da517b3921ebc47ab43
+          images: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:9f4cd868278288b2eee92da517b3921ebc47ab43  
           ports:
             - containerPort: 8080
           resources:
