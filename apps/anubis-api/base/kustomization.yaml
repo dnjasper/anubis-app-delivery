@@ -6,6 +6,5 @@ resources:
   - ingress.yaml
   - ingressclass.yaml
   - serviceaccount.yaml
-  - helmrelease.yaml
-  - helmrepo.yaml
+  
   - ../flux-crds
