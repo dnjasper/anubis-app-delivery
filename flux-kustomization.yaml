@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cluster-addons-source.yaml     # 👈 Add this line
-  - aws-kustomization.yaml         # 👈 Add this line
-  # (Keep whatever other resources were already listed here)
+  - cluster-addons-source.yaml
+  - aws-kustomization.yaml
