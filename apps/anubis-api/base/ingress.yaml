@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: anubis-external-lb
+  ingressClassName: alb
   rules:
     - http:
         paths:
@@ -19,4 +19,10 @@ spec:
                 name: anubis-api-service
                 port:
                   number: 80
-
+          - path: /health
+            pathType: Prefix
+            backend:
+              service:
+                name: anubis-api-service
+                port:
+                  number: 80
