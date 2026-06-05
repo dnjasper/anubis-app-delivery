@@ -1,19 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-   # 1. Namespace ALWAYS goes first
-  - monitoring.yaml
-
-  # 2. Helm infrastructure resources
   - helmrepo.yaml
   - helmrelease.yaml
-
-  # 3. Core app workloads (These will deploy safely to the default namespace)
   - deployment.yaml
   - service.yaml
   - ingress.yaml
   - ingressclass.yaml
-  
- # - ./monitoring
  # - ../flux-crds
 #  - serviceaccount.yaml
