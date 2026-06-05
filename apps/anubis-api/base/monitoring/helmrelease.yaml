@@ -13,6 +13,8 @@ spec:
         name: prometheus-community
         namespace: monitoring
   interval: 5m
+  install:
+    createNamespace: true
   values:
     grafana:
       adminUser: admin
