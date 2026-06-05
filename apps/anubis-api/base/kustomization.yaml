@@ -1,11 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - monitoring.yaml
+
+  - helmrepo.yaml
+  - helmrelease.yaml
   - deployment.yaml
   - service.yaml
   - ingress.yaml
   - ingressclass.yaml
-  - monitoring.yaml
-  - ./monitoring
+  
+ # - ./monitoring
   - ../flux-crds
 #  - serviceaccount.yaml
