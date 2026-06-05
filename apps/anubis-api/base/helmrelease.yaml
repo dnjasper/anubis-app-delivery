@@ -4,6 +4,7 @@ metadata:
   name: monitoring
   namespace: monitoring
 spec:
+  targetNamespace: monitoring
   interval: 10m
   chart:
     spec:
