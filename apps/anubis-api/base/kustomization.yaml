@@ -7,3 +7,9 @@ resources:
   - ingressclass.yaml
   - ../flux-crds
 #  - serviceaccount.yaml
+patches:
+  - path: serviceaccount-ecr.yaml
+    target:
+      kind: ServiceAccount
+      name: image-reflector-controller
+      namespace: flux-system
