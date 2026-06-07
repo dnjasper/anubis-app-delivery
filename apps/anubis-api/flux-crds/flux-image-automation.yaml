@@ -44,4 +44,4 @@ spec:
   update:
     strategy: Setters
     path: ./apps/anubis-api/base
-   
+    
