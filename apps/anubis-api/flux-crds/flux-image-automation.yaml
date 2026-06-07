@@ -40,7 +40,7 @@ spec:
       author:
         email: dnjasper@hotmail.com
         name: dnjasper
-      messageTemplate: 'gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}'
+      messageTemplate: 'gitops: automated application image tag deployment update'
   update:
     strategy: Setters
     path: ./apps/anubis-api/base
