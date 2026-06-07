@@ -38,8 +38,8 @@ spec:
         branch: main # ◄── Your secondary repo default branch (e.g., main or master)
     commit:
       author:
-        email: fluxcdbot@users.noreply.github.com
-        name: fluxcdbot
+        email: dnjasper@hotmail.com
+        name: dnjasper
       messageTemplate: gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}
   update:
     strategy: Setters
