@@ -6,9 +6,7 @@ metadata:
 spec:
   interval: 1m
   image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api
-  secretRef:
-    name: flux-system
-   # name: ecr-credentials  # IAM or credentials to pull ECR
+  provider: aws   
 
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
@@ -34,5 +32,16 @@ spec:
   sourceRef:
     kind: GitRepository
     name: anubis-app-delivery-source
+  git:
+    checkout:
+      ref:
+        branch: main # ◄── Your secondary repo default branch (e.g., main or master)
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}
   update:
     strategy: Setters
+    path: ../base
+   
