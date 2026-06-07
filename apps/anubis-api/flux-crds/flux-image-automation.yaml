@@ -35,12 +35,12 @@ spec:
   git:
     checkout:
       ref:
-        branch: main # ◄── Your secondary repo default branch (e.g., main or master)
+        branch: main
     commit:
       author:
         email: dnjasper@hotmail.com
         name: dnjasper
-      messageTemplate: gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}
+      messageTemplate: 'gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}'
   update:
     strategy: Setters
     path: ../base
