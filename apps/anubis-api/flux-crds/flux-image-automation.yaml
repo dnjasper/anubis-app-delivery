@@ -18,7 +18,7 @@ spec:
   imageRepositoryRef:
     name: anubis-api
   policy:
-    numerical:
+    alphabetical:
       order: asc  # Always pick the latest version
 
 ---
@@ -43,5 +43,5 @@ spec:
       messageTemplate: 'gitops: automated image tag update to {{ .SelectedTarget.ImageTag }}'
   update:
     strategy: Setters
-    path: ../base
+    path: ./apps/anubis-api/base
    
