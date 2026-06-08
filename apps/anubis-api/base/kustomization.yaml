@@ -6,7 +6,7 @@ resources:
   - service.yaml
   - ingress.yaml
   - ingressclass.yaml
-# - ../flux-crds
+  - ../flux-crds
 #  - serviceaccount.yaml
 patches:
   - path: serviceaccount-ecr.yaml
