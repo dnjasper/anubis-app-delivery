@@ -6,6 +6,7 @@ resources:
   - service.yaml
   - ingress.yaml
   - ingressclass.yaml
+  - flux-system-secret.enc.yaml
 #  - ../flux-crds
 #  - serviceaccount.yaml
 patches:
