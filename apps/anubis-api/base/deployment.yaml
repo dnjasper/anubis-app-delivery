@@ -6,7 +6,7 @@ metadata:
   labels:
     app: anubis-api
 spec:
-  replicas: 2 # Keeps exactly 2 copies of your app running for high-availability
+  replicas: 5 # Keeps exactly 2 copies of your app running for high-availability
   selector:
     matchLabels:
       app: anubis-api
