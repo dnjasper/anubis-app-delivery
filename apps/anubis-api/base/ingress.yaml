@@ -27,3 +27,10 @@ spec:
                 name: anubis-api-service
                 port:
                   number: 80
+          - path: /hook/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: notification-controller
+                port:
+                  number: 80
