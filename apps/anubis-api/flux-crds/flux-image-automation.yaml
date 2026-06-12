@@ -41,6 +41,8 @@ spec:
         email: dnjasper@hotmail.com
         name: dnjasper
       messageTemplate: 'gitops: automated application image tag deployment update'
+    push:
+      branch: main
   update:
     strategy: Setters
     path: ./apps/anubis-api/base
