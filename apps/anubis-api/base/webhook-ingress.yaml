@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flux-webhook-ingress
+  namespace: flux-system 
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    # Links this ingress to the same physical AWS Load Balancer URL
+    alb.ingress.kubernetes.io/group.name: anubis-ingress-group
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /hook/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: notification-controller
+                port:
+                  number: 80
