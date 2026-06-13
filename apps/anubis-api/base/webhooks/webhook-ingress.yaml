@@ -8,6 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     # Links this ingress to the same physical AWS Load Balancer URL
     alb.ingress.kubernetes.io/group.name: anubis-ingress-group
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
 spec:
   ingressClassName: alb
   rules:
