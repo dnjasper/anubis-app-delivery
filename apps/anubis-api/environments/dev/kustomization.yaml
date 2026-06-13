@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../base
   - ../../flux-crds
+  - ../../base/webhooks
 # patches:
 #   - target:
 #       kind: Deployment
