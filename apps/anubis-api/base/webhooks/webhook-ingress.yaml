@@ -14,8 +14,8 @@ spec:
   rules:
     - http:
         paths:
-          - path: /hook/*
-            pathType: ImplementationSpecific
+          - path: /hook
+            pathType: Prefix
             backend:
               service:
                 name: webhook-receiver
