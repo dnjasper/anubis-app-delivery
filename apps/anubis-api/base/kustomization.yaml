@@ -6,7 +6,7 @@ resources:
   - service.yaml
   - ingress.yaml
   - ingressclass.yaml
-  - webhook-ingress.yaml
+  
 # - flux-system-secret.enc.yaml
 #  - ../flux-crds
 #  - serviceaccount.yaml
@@ -16,3 +16,9 @@ patches:
       kind: ServiceAccount
       name: image-reflector-controller
       namespace: flux-system
+  - path: webhook-ingress.yaml
+    target:
+      kind: Ingress
+      name: flux-webhook-ingress
+      namespace: flux-system
+  
