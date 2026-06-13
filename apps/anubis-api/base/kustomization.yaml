@@ -17,9 +17,5 @@ patches:
       kind: ServiceAccount
       name: image-reflector-controller
       namespace: flux-system
-  - path: webhook-ingress.yaml
-    target:
-      kind: Ingress
-      name: flux-webhook-ingress
-      namespace: flux-system
+  
   
