@@ -5,6 +5,7 @@ on:
     branches:
       - main
   repository_dispatch:
+    types: [ "flux-system/sync-alert/info" ]
     
 jobs:
   build-and-ship:
