@@ -5,7 +5,8 @@ on:
     branches:
       - main
   repository_dispatch:
-    types: [ "flux-system/sync-alert/info" ]
+    types: 
+      - "Kustomization/anubis-app-delivery.flux-system" 
     
 jobs:
   build-and-ship:
