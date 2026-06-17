@@ -18,7 +18,7 @@ spec:
       containers:
         - name: anubis-api
           # Note: Flux will automatically overwrite this placeholder tag with your real live AWS ECR image hash later! Total Bullshit!
-          image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:b9c91f9341bfdea3f6b545ba2d09dbbea2e4d41d # {"$imagepolicy": "flux-system:anubis-api-latest"}
+          image: 533267265715.dkr.ecr.us-east-1.amazonaws.com/anubis-api:650aba73abba30a9b1f54dc3ac5f12ff7b9f874a # {"$imagepolicy": "flux-system:anubis-api-latest"}
           ports:
             - containerPort: 8080
           resources:
